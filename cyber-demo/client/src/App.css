@@ -117,15 +117,53 @@ label {
   border-radius: 5px;
 }
 .user-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 #user-image {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+  margin-right: 20px;
   border: 2px solid #610330;
   background-color: #c2005e2b;
   color: #610330;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.user-inputs {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+.user-inputs label {
+  margin-bottom: 0px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+}
+.background-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.background-container label {
+  margin-bottom: 0px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  font-family: "Open Sans", sans-serif;
+}
+.background-container select {
+  width: 80%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.7rem;
+  padding: 5px;
+}
+.skills-container button {
+  background-color: #610330;
 }

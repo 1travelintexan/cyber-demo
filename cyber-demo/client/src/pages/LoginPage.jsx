@@ -16,6 +16,7 @@ export const LoginPage = () => {
         userToLogin,
       );
       console.log(data);
+      localStorage.setItem("authToken", data.authToken);
       nav("/profile");
     } catch (error) {
       console.log(error);
@@ -57,7 +58,7 @@ export const LoginPage = () => {
             setPassword(e.target.value);
           }}
         />
-        <button>Sign Up</button>
+        <button>Login</button>
       </form>
       <p>
         New Here? <Link to={"/"}>Sign Up</Link>

@@ -1,5 +1,25 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import Navbar from "../components/Navbar";
 export const HomePage = () => {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const getUserProfile = async () => {
+      try {
+        const authToken = localStorage.getItem("authToken");
+        const { data } = await axios.get("http://localhost:5005/auth/verify", {
+          headers: {
+            authorization: `Bearer ${authToken}`,
+          },
+        });
+        setUser(data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUserProfile();
+  }, []);
   return (
     <div>
       <Navbar />
@@ -12,8 +32,37 @@ export const HomePage = () => {
         </section>
         <div className="user-section">
           <div id="user-image">
-            <h1>R</h1>
+            <h1>{user && user.username[0]}</h1>
           </div>
+          <section className="user-inputs">
+            <label>Name</label>
+            <input type="text" className="long-input" value={user.username} />
+            <label>Current Role</label>
+            <input type="text" value="Teachers Assistant" />
+            <label>Location</label>
+            <input type="text" value="Magnolia, tx" />
+          </section>
+        </div>
+        <h3>Your Background</h3>
+        <div className="background-container">
+          <section>
+            <label>Years of Experience</label>
+            <select>
+              <option>5-10 Years</option>
+            </select>
+          </section>
+          <section>
+            <label>Industry</label>
+            <select>
+              <option>Retail & Consumer Goods</option>
+            </select>
+          </section>
+        </div>
+        <h3>Skills</h3>
+        <div className="skills-container">
+          <button>Project Mgmt</button>
+          <button>Data Analysis</button>
+          <button>Communication</button>
         </div>
       </div>
     </div>

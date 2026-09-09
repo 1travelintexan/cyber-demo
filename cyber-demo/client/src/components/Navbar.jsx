@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 const Navbar = () => {
+  const nav = useNavigate();
+  async function handleLogout() {
+    localStorage.removeItem("authToken");
+    nav("/login");
+  }
   return (
     <nav>
       <img alt="logo" src={logo} />
@@ -15,7 +20,7 @@ const Navbar = () => {
         <h6>Matches</h6>
       </Link>
       <Link>
-        <h6>Resources</h6>
+        <h6 onClick={handleLogout}>Logout</h6>
       </Link>
     </nav>
   );
