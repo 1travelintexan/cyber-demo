@@ -146,11 +146,17 @@ label {
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
 }
+.line-break {
+  height: 2px;
+  background-color: rgba(128, 128, 128, 0.432);
+  margin: 10px 0;
+}
 .background-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-bottom: 20px;
+  margin-top: 5px;
 }
 .background-container label {
   margin-bottom: 0px;
@@ -164,6 +170,17 @@ label {
   font-size: 0.7rem;
   padding: 5px;
 }
-.skills-container button {
-  background-color: #610330;
+.skills-btn {
+  border: none;
+  padding: 7px 9px;
+  margin: 10px 3px;
+  color: white;
+  border-radius: 9999px;
+  background-color: #c2005f;
+  font-size: 0.7rem;
+}
+#add-skill-btn {
+  background-color: aliceblue;
+  border: 2px dotted gray;
+  color: black;
 }

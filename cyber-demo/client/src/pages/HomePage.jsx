@@ -36,14 +36,19 @@ export const HomePage = () => {
           </div>
           <section className="user-inputs">
             <label>Name</label>
-            <input type="text" className="long-input" value={user.username} />
+            <input
+              type="text"
+              className="long-input"
+              value={user && user.username}
+            />
             <label>Current Role</label>
             <input type="text" value="Teachers Assistant" />
             <label>Location</label>
-            <input type="text" value="Magnolia, tx" />
+            <input type="text" value="Magnolia, Tx" />
           </section>
         </div>
         <h3>Your Background</h3>
+        <div className="line-break"></div>
         <div className="background-container">
           <section>
             <label>Years of Experience</label>
@@ -59,10 +64,12 @@ export const HomePage = () => {
           </section>
         </div>
         <h3>Skills</h3>
+        <div className="line-break"></div>
         <div className="skills-container">
           <button>Project Mgmt</button>
           <button>Data Analysis</button>
           <button>Communication</button>
+          <button>+ Add Skill</button>
         </div>
       </div>
     </div>
