@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaLinkedin } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 export const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,35 +21,47 @@ export const LoginPage = () => {
       console.log(error);
     }
   }
-
   return (
-    <div>
-      <h2>Login Here</h2>
+    <div className="signup-page">
+      <h2>Login</h2>
+      <p>Lets get started with Career Guide</p>
+      <section id="signup-btn-container">
+        <button>
+          <p>Login with linkedIn</p>
+          <FaLinkedin size={20} color="#0A66C2" />
+        </button>
+        <button>
+          <p>Login with Google </p>
+          <FcGoogle size={20} />
+        </button>
+      </section>
+      <div id="or-container">
+        <p>or</p>
+      </div>
       <form onSubmit={handleLoginUser}>
-        <label>
-          Email:
-          <input
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </label>
-        <button>Login</button>
+        <label>Email:</label>
+        <input
+          type="email"
+          placeholder="martin@ironhack.com"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          placeholder="************"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <button>Sign Up</button>
       </form>
+      <p>
+        New Here? <Link to={"/"}>Sign Up</Link>
+      </p>
     </div>
   );
 };

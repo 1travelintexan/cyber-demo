@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaLinkedin } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 export const SignupPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -22,44 +24,55 @@ export const SignupPage = () => {
   }
 
   return (
-    <div>
-      <h2>Sign up with us :)</h2>
+    <div className="signup-page">
+      <h2>Sign Up</h2>
+      <p>Lets get started with Career Guide</p>
+      <section id="signup-btn-container">
+        <button>
+          <p>Sign up with linkedIn</p>
+          <FaLinkedin size={20} color="#0A66C2" />
+        </button>
+        <button>
+          <p>Sign up with Google </p>
+          <FcGoogle size={20} />
+        </button>
+      </section>
+      <div id="or-container">
+        <p>or</p>
+      </div>
       <form onSubmit={handleSignupUser}>
-        <label>
-          Username:
-          <input
-            type="text"
-            placeholder="Enter Username"
-            value={username}
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            placeholder="Enter Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
-        </label>
-        <button>Sign Up!</button>
+        <label>Username:</label>
+        <input
+          type="text"
+          placeholder="Martin"
+          value={username}
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+        />
+        <label>Email:</label>
+        <input
+          type="email"
+          placeholder="martin@ironhack.com"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+        <label>Password:</label>
+        <input
+          type="password"
+          placeholder="************"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+        <button>Sign Up</button>
       </form>
+      <p>
+        Already have an account? <Link to={"/login"}>Login</Link>
+      </p>
     </div>
   );
 };
